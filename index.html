@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="icon" href="public/image/spotfiy/spotify-logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <style>
+        main{
+            height: 100vh;
+            width: 101.5%;
+            background-color: black;
+            margin: 0px;
+            padding: 0px;
+            position: fixed;
+        }
+        #navSection{
+            height: 100vh;
+            background-color: rgb(43, 41, 41);
+        }
+        #mainSection{
+            height: 85vh;
+            background-color: rgb(26, 29, 26);
+            overflow: auto;
+        }
+        #musicSection{
+            height: 100vh;
+            background-color: rgb(29, 29, 23);
+        }
+        nav, #musicIcons{
+            background-color: rgb(40, 38, 38);
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0px 0px 35px rgb(0, 0, 0);
+        }
+        #title1{
+            height: 300px;
+            color: white;
+        }
+        #title2{
+            height: 100px;
+            color: white;
+        }
+        #title3{
+            height: 300px;
+            background-color: rgb(56, 54, 54);
+        }
+        #play{
+            height: 50px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+        }
+        #play:hover{
+            background-color: rgb(96, 85, 85);
+        }
+        #line{
+            border-bottom: 1px solid white;
+        }
+        .Titles1{
+            background-color: rgb(191, 31, 87);
+            display: grid;
+            grid-template-columns: 4fr 8fr;
+        }
+        .Titles2{
+            background-color: rgb(52, 194, 237);
+            display: grid;
+            grid-template-columns: 4fr 8fr;
+        }
+        .Titles3{
+            background-color: #e96e16;
+            display: grid;
+            grid-template-columns: 4fr 8fr;
+        }
+        .Titles4{
+            background-color: #e623b8;
+            display: grid;
+            grid-template-columns: 4fr 8fr;
+        }
+        .Titles5{
+            background-color: #397ce0;
+            display: grid;
+            grid-template-columns: 4fr 8fr;
+        }
+        #title2 div{
+            height: 100px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6); 
+        }
+        .BottemPlay{
+            height: 100px;
+            width: 100%;
+            background-color: rgb(54, 51, 51);
+            position: fixed;
+            bottom: 0px;
+            box-shadow: 0px 0px 45px black;
+            margin-left: 0px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .imgIcons{
+            margin: 7px;
+            border-radius: 50%;
+        }
+        .imgIcon{
+            margin: 7px;
+            border-radius: 50%;
+            animation: animation 40s infinite;
+        }
+        @keyframes animation {    
+            form{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        var y =2;
+
+function titleLoad(y){
+    var Title = document.getElementById("title1");
+    var Title1 =document.getElementById("title2");
+    Title1.className="Titles"+y
+    Title1.style.display="grid"
+    Title1.style.gridTemplateColumns="12fr"
+    Title.className="Titles"+y;
+    var Titleimage = document.getElementById("img"+y);
+    var subtitle = document.getElementById("SubTitlte"+y);
+    subtitle.style.display="block"
+    Titleimage.style.display="block";
+    
+        switch(y){
+            case 1:
+                for(i=1;i<6;i++){
+                    if(i !== 1){
+                    document.getElementById("img"+i).style.display="none";
+                    document.getElementById("SubTitlte"+i).style.display="none";
+                    }
+                }
+            break ;
+            case 2:
+                for(i=1;i<6;i++){
+                    if(i !== 2){
+                    document.getElementById("img"+i).style.display="none";
+                    document.getElementById("SubTitlte"+i).style.display="none";
+                    }
+                }
+            break;
+            case 3:
+                for(i=1;i<6;i++){
+                    if(i !== 3){
+                    document.getElementById("img"+i).style.display="none";
+                    document.getElementById("SubTitlte"+i).style.display="none";
+                    }
+                }
+            break;
+            case 4:
+                for(i=1;i<6;i++){
+                    if(i !== 4){
+                    document.getElementById("img"+i).style.display="none";
+                    document.getElementById("SubTitlte"+i).style.display="none";
+                    }
+                }
+            break;
+            case 5:
+                for(i=1;i<6;i++){
+                    if(i !== 5){
+                    document.getElementById("img"+i).style.display="none";
+                    document.getElementById("SubTitlte"+i).style.display="none";
+                    }
+                }
+            break;
+        }
+    
+    
+}
+
+function MusicChange(y){
+
+    var playIcon = document.getElementById("musics"+y);
+    var music1 = document.getElementById("Music"+y);
+    
+    if(playIcon.classList.contains("bi-play-circle" )){
+        playIcon.classList.remove("bi-play-circle")
+        playIcon.classList.add("bi-pause-circle")
+        music1.play()
+    }
+    else{
+        playIcon.classList.remove("bi-pause-circle")
+        playIcon.classList.add("bi-play-circle")
+        music1.pause();
+    }
+    switch(music1.className){
+        case "Musicplay1":
+            for(i=1;i<6;i++){
+                if(i !== 1){
+                    document.getElementById("Music"+i).pause()
+                    document.getElementById("musics"+i).className="bi-play-circle fs-4 text-white col-1"
+                }
+            }
+        break ;
+        case "Musicplay2":
+            for(i=1;i<6;i++){
+                if(i !== 2){
+                    document.getElementById("Music"+i).pause()
+                    document.getElementById("musics"+i).className="bi-play-circle fs-4 text-white col-1"
+                }
+            }
+        break;
+        case "Musicplay3":
+            for(i=1;i<6;i++){
+                if(i !== 3){
+                    document.getElementById("Music"+i).pause()
+                    document.getElementById("musics"+i).className="bi-play-circle fs-4 text-white col-1"
+                }
+            }
+        break;
+        case "Musicplay4":
+            for(i=1;i<6;i++){
+                if(i !== 4){
+                    document.getElementById("Music"+i).pause()
+                    document.getElementById("musics"+i).className="bi-play-circle fs-4 text-white col-1"
+                }
+            }
+        break;
+        case "Musicplay5":
+            for(i=1;i<6;i++){
+                if(i !== 5){
+                    document.getElementById("Music"+i).pause()
+                    document.getElementById("musics"+i).className="bi-play-circle fs-4 text-white col-1"
+                }
+            }
+        break;
+    }
+}
+function secondPlay(){
+    
+    var play2 = document.getElementById("title2play")
+    var play3 = document.getElementById("title3play")
+    var playIcon = document.getElementById("musics"+y);
+    var music1 = document.getElementById("Music"+y);
+
+        if(playIcon.classList.contains("bi-play-circle" )){
+            playIcon.classList.remove("bi-play-circle")
+            playIcon.classList.add("bi-pause-circle")
+            play2.classList.remove("bi-play-circle-fill")
+            play2.classList.add("bi-pause-circle-fill")
+            play3.classList.remove("bi-play-circle-fill")
+            play3.classList.add("bi-pause-circle-fill")
+            music1.play()
+        }
+        else{
+            playIcon.classList.remove("bi-pause-circle")
+            playIcon.classList.add("bi-play-circle")
+            play2.classList.remove("bi-pause-circle-fill")
+            play2.classList.add("bi-play-circle-fill")
+            play3.classList.remove("bi-pause-circle-fill")
+            play3.classList.add("bi-play-circle-fill")  
+            music1.pause();
+        }
+
+   
+    
+}
+function bannerThree(y){
+    var img = document.getElementById("bannerimg")
+    img.src=`public/image/spotfiy/proj-img${y}.png`
+    img.style.height="350px";
+    img.style.width="350px";
+
+    var bannertitle = document.getElementById("bannertitle")
+    switch (y){
+        case 1:
+            bannertitle.innerHTML="Ae Dil Hai Mushkil(original Motion Picture Sountrack)[Delux Audio] 🎶";
+            return;
+        case 2:
+            bannertitle.innerHTML="Satranga (from Animalmovie) 💕";
+            return;
+        case 3:
+            bannertitle.innerHTML="Shree Hanumanchalisa (Hanumanji Ashtak)🙏";
+        return;
+        case 4:
+            bannertitle.innerHTML="Shree Hanumanchalisa (Hanumanji Ashtak)🙏";
+        return;
+        case 5:
+            bannertitle.innerHTML="Shree Hanumanchalisa (Hanumanji Ashtak)🙏";
+        return;
+    }
+}
+function Maincard(y){
+            var title = document.getElementById("bottomTitle");
+
+            var img = document.getElementById("minMigCard");
+            img.src=`public/image/spotfiy/proj-img${y}.png`;
+            img.style.height="50px"
+            img.style.width="50px"
+            switch (y){
+                case 1:
+                    title.innerHTML="Ae Dil Hai Mushkil(original Motion Picture Sountrack)[Delux Audio] 🎶";
+                    return;
+                case 2:
+                    title.innerHTML="Satranga (from Animalmovie) 💕";
+                    return;
+                case 3:
+                    title.innerHTML="Shree Hanumanchalisa (Hanumanji Ashtak)🙏";
+                 return;
+                 case 4:
+                    title.innerHTML="Shree Hanumanchalisa (Hanumanji Ashtak)🙏";
+                 return;
+                 case 5:
+                    title.innerHTML="Shree Hanumanchalisa (Hanumanji Ashtak)🙏";
+                 return;
+            }
+}
+
+function sideCard(y){
+    var stitle =document.getElementById("sideTitle");
+    var simg = document.getElementById("sideImg");
+    simg.style.height="50px";
+    simg.style.width="50px";
+    switch (y){
+        case 1:
+            stitle.innerHTML="Satranga (from Animalmovie)";
+            simg.src=`public/image/spotfiy/proj-img${y+1}.png`;
+            return;
+        case 2:
+            stitle.innerHTML="💕Shree Hanumanchalisa (Hanumanji Ashtak)🙏";
+            simg.src=`public/image/spotfiy/proj-img${y+1}.png`;
+            return;
+        case 3:
+            stitle.innerHTML="Ae Dil Hai Mushkil(original Motion Picture Sountrack)[Delux Audio] 🎶";
+            simg.src=`public/image/spotfiy/proj-img${y+1}.png`;
+         return;
+         case 4:
+            stitle.innerHTML="Ae Dil Hai Mushkil(original Motion Picture Sountrack)[Delux Audio] 🎶";
+            simg.src=`public/image/spotfiy/proj-img${y+1}.png`;
+         return;
+         case 5:
+            stitle.innerHTML="Ae Dil Hai Mushkil(original Motion Picture Sountrack)[Delux Audio] 🎶";
+            simg.src=`public/image/spotfiy/proj-img${y-4}.png`;
+         return;
+    }
+}
+function playClick(x){
+    y=x
+    var play3 = document.getElementById("title3play");
+    var play2 = document.getElementById("title2play");
+    var playIcon = document.getElementById("musics"+y);
+    function slideBar(){
+        var music1 = document.getElementById("Music"+y);
+        var slidebar = document.getElementById("sliderBar")
+        var spanmax = document.getElementById("playsecondmax");
+        var spanmin = document.getElementById("playsecondmin");
+        var min = Math.floor((music1.duration)/60);
+        var sec = Math.floor((music1.duration)%60);
+        var min1 = Math.floor((music1.currentTime)/60);
+        var sec1 = Math.floor((music1.currentTime)%60);
+        slidebar.max=music1.duration;
+        slidebar.value = Math.floor(music1.currentTime);
+        if(slidebar.value== Math.floor(music1.duration)){
+            postMusic();
+        }
+         
+        if(min <10){
+            min = `0${min}`
+        }
+        if(sec <10){
+            sec = `0${sec}`
+        }
+        if(min1 <10){
+            min1 = `${min1}`
+        }
+        if(sec1 <10){
+            sec1 = `${sec1}`
+        }
+        spanmax.innerHTML=`${min}:${sec}`;
+        spanmin.innerHTML=`${min1}:${sec1}`;
+    
+    }  
+    setInterval(slideBar,300);
+    
+
+        if(playIcon.classList.contains("bi-play-circle" )){
+            play2.classList.remove("bi-play-circle-fill")
+            play2.classList.add("bi-pause-circle-fill")
+            play3.classList.remove("bi-play-circle-fill")
+            play3.classList.add("bi-pause-circle-fill")
+           }
+        else{
+            play2.classList.remove("bi-pause-circle-fill")
+            play2.classList.add("bi-play-circle-fill")  
+            play3.classList.remove("bi-pause-circle-fill")
+            play3.classList.add("bi-play-circle-fill")    
+    }
+
+    sideCard(y)
+    Maincard(y)
+    bannerThree(y)
+    titleLoad(y)
+    MusicChange(y)
+}
+function preMusic(){
+    var pre =y-1
+    playClick(pre)
+}
+function postMusic(){
+    var post = y+1
+    playClick(post)
+}
+function slideBarchange(){
+    var music1 = document.getElementById("Music"+y);
+    var slidebar = document.getElementById("sliderBar");
+    music1.currentTime=slidebar.value;
+}
+
+    
+    </script>
+
+</head>
+<body class="container-fluid">
+    <main class="row p-1">
+        <div class="col-1 m-1" id="navSection">
+            <nav class="m-2 rounded-2">
+                <span class="bi bi-three-dots text-white"></span>
+                <span class="bi bi-house text-white d-block p-2 fs-4"></span>
+                <span class="bi bi-search text-white d-block p-2 fs-4"></span>
+                <span class="bi bi-heart-fill text-danger d-block p-2 fs-4"></span>
+            </nav>
+            <div class="m-2 rounded-2 mt-5" id="musicIcons">
+                <img onclick="playClick(1)" src="public/image/spotfiy/proj-img1.png" id="Iconimag1" height="50px" width="50px" class="rounded rounded-circle m-2">
+                <img onclick="playClick(2)" src="public/image/spotfiy/proj-img2.png" id="Iconimag2" height="50px" width="50px" class="rounded rounded-circle m-2">
+                <img onclick="playClick(3)" src="public/image/spotfiy/proj-img3.png" id="Iconimag3" height="50px" width="50px" class="rounded rounded-circle m-2">
+                <img onclick="playClick(4)" src="public/image/spotfiy/proj-img4.png" id="Iconimag4" height="50px" width="50px" class="rounded rounded-circle m-2">
+                <img onclick="playClick(5)" src="public/image/spotfiy/proj-img5.png" id="Iconimag5" height="50px" width="50px" class="rounded rounded-circle m-2">
+            </div>
+        </div>
+
+        <div class="col m-1 rounded-2" id="mainSection">
+            <div id="title1" class="pb-5 Titles1">
+                <div class="pt-5 ">
+                    <img src="public/image/spotfiy/proj-img1.png" height="230px" width="260px" id="img1" style="display: block; box-shadow: 0px 0px 65px black;" class="ms-2">
+                    <img src="public/image/spotfiy/proj-img2.png" height="250px" width="280px" id="img2" style="display: none;  box-shadow: 0px 0px 65px black;" class="ms-2">
+                    <img src="public/image/spotfiy/proj-img3.png" height="250px" width="280px" id="img3" style="display: none;  box-shadow: 0px 0px 65px black;" class="ms-2">
+                    <img src="public/image/spotfiy/proj-img4.png" height="250px" width="280px" id="img4" style="display: none;  box-shadow: 0px 0px 65px black;" class="ms-2">
+                    <img src="public/image/spotfiy/proj-img5.png" height="250px" width="280px" id="img5" style="display: none;  box-shadow: 0px 0px 65px black;" class="ms-2">
+                </div>
+                <div>
+                    <div class=" pt-5 mt-5" style="display: block;" id="SubTitlte1">
+                        <div>Album</div>
+                        <b class="fs-4">Ae Dil Hai Mushkil(original Motion Picture Sountrack)[Delux Audio]</b>
+                        <div><img src="public/image/spotfiy/arjithsingh.png" height="35px" class="rounded rounded-circle" > Pritem.2016 .9 songs, 39 min 19sec</div>
+                    </div>
+                    <div class=" pt-5 mt-5" style="display: none;" id="SubTitlte2">
+                        <div>Album</div>
+                        <b class="fs-2">Satranga (from Animalmovie) 💕</b>
+                        <div><img src="public/image/spotfiy/arjithsingh.png" height="35px" class="rounded rounded-circle" > arjithsingh . Shresyash.prayank - shidthad - prank ,2023 .1 songs, 4min 32sec</div>
+                    </div>
+                    <div class=" pt-5 mt-5" style="display: none;" id="SubTitlte3">
+                        <div>Album</div>
+                        <b class="fs-3">Shree Hanumanchalisa (Hanumanji Ashtak) 🙏</b>
+                        <div><img src="public/image/spotfiy/gulshanji.png" height="35px" class="rounded rounded-circle" > hariharan.1992 .8 songs, 42 min 19sec</div>
+                    </div>
+                    <div class=" pt-5 mt-5" style="display: none;" id="SubTitlte4">
+                        <div>Album</div>
+                        <b class="fs-3">Love Aaj Kal (original Motion Picture Soundtrack)</b>
+                        <div><img src="public/image/spotfiy/arjithsingh.png" height="35px" class="rounded rounded-circle" > pritam.2020 .11 songs, 42 min 19sec</div>
+                    </div>
+                    <div class=" pt-5 mt-5" style="display: none;" id="SubTitlte5">
+                        <div>Album</div>
+                        <b class="fs-3">Thum Kaya Mile (From "Rocky Aur Rani Kii pram kahane")</b>
+                        <div><img src="public/image/spotfiy/arjithsingh.png" height="35px" class="rounded rounded-circle" > pritam.arjithsingh.2020 .11 songs, 42 min 19sec</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="title2" class="bg-danger">
+                <div class="d-flex align-items-center ps-4" style="height: 100px;">
+                    <span class="fs-1 p-3 text-success bi-play-circle-fill" id="title2play" onclick="secondPlay()"></span>
+                    <span class="fs-1 p-3 text-white bi-plus-circle"></span>
+                    <span class="fs-1 p-3 text-white bi-arrow-down-circle"></span>
+                </div>
+            </div>
+            <div id="title3">
+                <div>
+                    <div class="row m-0" id="line">
+                        <span class="col-1 text-white">#</span>
+                        <span class="col text-white">Title</span>
+                        
+                    </div>
+                    <div>
+                        <div id="play">
+                            <div class="row">
+                                <span class="fs-4 text-white col-1 bi-play-circle" id="musics1" onclick="playClick(1)"></span>
+                                <span class="Title text-white col pt-1">Ae Dil Hai Mushkil(original Motion Picture Sountrack)[Delux Audio]</span>
+                            </div> 
+                        </div>
+                        <div id="play">
+                            <div class="row">
+                                <span class="fs-4 text-white col-1 bi-play-circle" id="musics2" onclick="playClick(2)"></span>
+                                <span class="Title text-white col text-center pt-1">Satranga (from Animalmovie)</span>
+                            </div>
+                        </div>
+                        <div id="play">
+                            <div class="row">
+                                <span class="fs-4 text-white col-1 bi-play-circle" id="musics3" onclick="playClick(3)"></span>
+                                <span class="Title text-white col text-center pt-1">Shree Hanumanchalisa (Hanumanji Ashtak)</span>
+                            </div>
+                        </div>
+                        <div id="play">
+                            <div class="row">
+                                <span class="fs-4 text-white col-1 bi-play-circle" id="musics4" onclick="playClick(4)"></span>
+                                <span class="Title text-white col text-center pt-1">Shree Hanumanchalisa (Hanumanji Ashtak)</span>
+                            </div>
+                        </div>
+                        <div id="play">
+                            <div class="row">
+                                <span class="fs-4 text-white col-1 bi-play-circle" id="musics5" onclick="playClick(5)"></span>
+                                <span class="Title text-white col text-center pt-1">Shree Hanumanchalisa (Hanumanji Ashtak)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-3 m-1 rounded-2" id="musicSection">
+            <div class="card bg-dark mt-4">
+                <div class="card-img-top" >
+                    <img width="340px" height="350px" id="bannerimg" src="public/image/spotfiy/proj-img1.png">
+                </div>
+                <div class="card-header fs-5 fw-bold text-dark bg-white" id="bannertitle">
+                    Ae Dil Hai Mushkil(original Motion Picture Sountrack)[Delux Audio]🎶
+                </div>
+            </div>
+            <div class="m-3 card bg-dark text-white">
+                <div class="card-header p-2 row">
+                    <div class="col-7 fw-bold">Next queue</div>
+                    <div class="col-5">Open queue</div>
+                </div>
+                <div class="card-body p-2 row">
+                    <span class="col-4 bi-music-note" > <img src="public/image/spotfiy/proj-img2.png" width="50px" height="50px" id="sideImg"></span>
+                    <div class="col" id="sideTitle">Satranga (from Animalmovie)</div>
+                </div>
+            </div>
+            <div>
+                <audio src="public/audio/Ae-Dil.mp3" id="Music1" class="Musicplay1" preload="auto"></audio>
+                <audio src="public/audio/Animalmoviesong.mp3" id="Music2" class="Musicplay2" preload="auto"></audio>
+                <audio src="public/audio/Hanumanchalisa.mp3" id="Music3" class="Musicplay3" preload="auto"></audio>
+                <audio src="public/audio/Mehrama.mp3" id="Music4" class="Musicplay4" preload="auto"></audio>
+                <audio src="public/audio/Tum Kya Mile.mp3" id="Music5" class="Musicplay5" preload="auto"></audio>
+            </div>
+        </div>
+    </main>
+
+    <div class="BottemPlay row">
+        <div id="min-card" class="col-5 p-4">
+            <img src="public/image/spotfiy/proj-img1.png" id="minMigCard" width="50px" height="50px">
+            <span id="bottomTitle" class="text-white ps-3">Ae Dil Hai Mushkil(original Motion Picture Sountrack)[Delux Audio] 🎶</span>
+            
+        </div>
+        <div class="col-7 pt-1">
+            <div style="padding-left: 10em;">
+                <span class="bi-skip-start-circle text-success fs-3" onclick="preMusic()"></span>
+                <span class="bi-play-circle-fill text-success fs-3 p-3" id="title3play" onclick="secondPlay()"></span>
+                <span class="bi-skip-end-circle text-success fs-3" onclick="postMusic()"></span>
+            </div>
+            <div>
+                <input type="range" onchange="slideBarchange()" min="1" value="1" class="w-50 text-success" id="sliderBar"><br>
+                <span id="playsecondmin" class="text-white">00:00</span>
+                <span id="playsecondmax" class="text-white" style="margin-left: 21em;">00:00</span>
+            </div>
+
+        </div>   
+    </div>
+    
+</body>
+</html>
