@@ -423,11 +423,14 @@ function slideBarchange(){
     music1.currentTime=slidebar.value;
 }
 
+function bodycontextMeny(){
+    return false;
+}
     
     </script>
 
 </head>
-<body class="container-fluid">
+<body class="container-fluid" oncontextmenu="bodycontextMeny()">
     <main class="row p-1">
         <div class="col-1 m-1" id="navSection">
             <nav class="m-2 rounded-2">
